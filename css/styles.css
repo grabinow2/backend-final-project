@@ -1,0 +1,19 @@
+
+body {
+    font: 130% georgia, sans-serif;
+    line-height: 1.88889;
+    color: #555753;
+    background: #fff url(https://image.freepik.com/free-vector/gold-stars-beautifully-arranged-white-background_41084-367.jpg) ;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+header{
+    text-align: left;
+}
+footer{
+    padding-top: 100px;
+}
+a:hover{
+    background: beige;
+}
