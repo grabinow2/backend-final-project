@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.4
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2020 at 08:51 PM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.3.0
+-- Generation Time: Mar 17, 2020 at 07:02 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,16 +19,40 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `MyStar`
+-- Database: `mystar`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Customer`
+-- Table structure for table `authorizedusers`
 --
 
-CREATE TABLE `Customer` (
+CREATE TABLE `authorizedusers` (
+  `userName` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `CUST_ID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `authorizedusers`
+--
+
+INSERT INTO `authorizedusers` (`userName`, `password`, `CUST_ID`) VALUES
+('jacob96', 'securepass123', 1),
+('grabinow2', 'joshblockisthebest', 2),
+('sgorlin', 'password', 3),
+('corona', 'saveme', 4),
+('elonmusk', 'weareinavirtualworld', 5),
+('dtrump', 'MAGA2020', 6);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer`
+--
+
+CREATE TABLE `customer` (
   `CUST_ID` int(11) NOT NULL,
   `F_NAME` varchar(20) NOT NULL,
   `L_NAME` varchar(20) NOT NULL,
@@ -40,10 +64,10 @@ CREATE TABLE `Customer` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `PAYMENT_INFO`
+-- Table structure for table `payment_info`
 --
 
-CREATE TABLE `PAYMENT_INFO` (
+CREATE TABLE `payment_info` (
   `PAYMENT_ID` int(11) NOT NULL,
   `NAME_ON_CARD` varchar(40) NOT NULL,
   `CC_NUM` varchar(19) NOT NULL,
@@ -54,10 +78,10 @@ CREATE TABLE `PAYMENT_INFO` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `PURCHASE`
+-- Table structure for table `purchase`
 --
 
-CREATE TABLE `PURCHASE` (
+CREATE TABLE `purchase` (
   `PURCHASE_ID` int(11) NOT NULL,
   `CUST_ID` int(11) NOT NULL,
   `STAR_ID` int(11) NOT NULL,
@@ -67,10 +91,10 @@ CREATE TABLE `PURCHASE` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Star`
+-- Table structure for table `star`
 --
 
-CREATE TABLE `Star` (
+CREATE TABLE `star` (
   `STAR_ID` int(11) NOT NULL,
   `NAME` varchar(30) NOT NULL,
   `DT_UPLOADED` date NOT NULL,
@@ -83,27 +107,27 @@ CREATE TABLE `Star` (
 --
 
 --
--- Indexes for table `Customer`
+-- Indexes for table `customer`
 --
-ALTER TABLE `Customer`
+ALTER TABLE `customer`
   ADD PRIMARY KEY (`CUST_ID`);
 
 --
--- Indexes for table `PAYMENT_INFO`
+-- Indexes for table `payment_info`
 --
-ALTER TABLE `PAYMENT_INFO`
+ALTER TABLE `payment_info`
   ADD PRIMARY KEY (`PAYMENT_ID`);
 
 --
--- Indexes for table `PURCHASE`
+-- Indexes for table `purchase`
 --
-ALTER TABLE `PURCHASE`
+ALTER TABLE `purchase`
   ADD PRIMARY KEY (`PURCHASE_ID`);
 
 --
--- Indexes for table `Star`
+-- Indexes for table `star`
 --
-ALTER TABLE `Star`
+ALTER TABLE `star`
   ADD PRIMARY KEY (`STAR_ID`);
 
 --
@@ -111,27 +135,27 @@ ALTER TABLE `Star`
 --
 
 --
--- AUTO_INCREMENT for table `Customer`
+-- AUTO_INCREMENT for table `customer`
 --
-ALTER TABLE `Customer`
+ALTER TABLE `customer`
   MODIFY `CUST_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `PAYMENT_INFO`
+-- AUTO_INCREMENT for table `payment_info`
 --
-ALTER TABLE `PAYMENT_INFO`
+ALTER TABLE `payment_info`
   MODIFY `PAYMENT_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `PURCHASE`
+-- AUTO_INCREMENT for table `purchase`
 --
-ALTER TABLE `PURCHASE`
+ALTER TABLE `purchase`
   MODIFY `PURCHASE_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `Star`
+-- AUTO_INCREMENT for table `star`
 --
-ALTER TABLE `Star`
+ALTER TABLE `star`
   MODIFY `STAR_ID` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
