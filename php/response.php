@@ -5,18 +5,34 @@
 session_start();
 $_SESSION['LoggedIn'] = false;
 
-$usernameAndPassword = array("Jacob96" => "securepass123", "grabinow2" => "JoshBlockisthebest", "sgorlin" => "password", "Cherry" => "corona");
-if (array_key_exists($username,$usernameAndPassword))
-{
-    if($usernameAndPassword[$username]==$password){
-        $_SESSION['LoggedIn'] = true;
-        setcookie('username', $username);
+$conn = mysqli_connect('localhost', 'root', '', 'mystar');
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$sql ="SELECT * FROM authorizedusers Where username= '".$username. "' and password= '".$password."' ";
+
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        if($row["userName"]==$username && $row["password"]== $password){
+            $_SESSION['LoggedIn'] = true;
+            setcookie('username', $username);
+        }
+
 
     }
-    else{
-        //wrong password
-    }
+} else {
+    echo "0 results";
 }
+
+
+mysqli_close($conn);
 
 //redirect to content.php
 header('Location: content.php');
