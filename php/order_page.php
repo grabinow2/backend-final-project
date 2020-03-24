@@ -30,4 +30,5 @@ Enter Your Information Below:
 <br>
 <input type="checkbox" id="Receive_Emails_CB" name="Receive_Emails" value="Receive">
 <label for="Receive_Emails_CB"> Receive Emails</label><br>
+<button type="button">Submit Order</button>
 
