@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2020 at 02:44 PM
+-- Generation Time: Mar 24, 2020 at 08:13 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -87,6 +87,16 @@ CREATE TABLE `payment_types` (
   `payment_type` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `payment_types`
+--
+
+INSERT INTO `payment_types` (`payment_type_ID`, `payment_type`) VALUES
+(1, 'Visa'),
+(2, 'MasterCard'),
+(3, 'Discover'),
+(4, 'American Express');
+
 -- --------------------------------------------------------
 
 --
@@ -110,6 +120,20 @@ CREATE TABLE `selling_regions` (
   `Selling_region_ID` int(11) NOT NULL,
   `REGION` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `selling_regions`
+--
+
+INSERT INTO `selling_regions` (`Selling_region_ID`, `REGION`) VALUES
+(1, 'United States'),
+(2, 'Canada'),
+(5, 'United Kingdom'),
+(6, 'Mexico'),
+(7, 'Germany'),
+(8, 'France'),
+(9, 'Italy'),
+(10, 'China');
 
 -- --------------------------------------------------------
 
@@ -185,7 +209,7 @@ ALTER TABLE `payment_info`
 -- AUTO_INCREMENT for table `payment_types`
 --
 ALTER TABLE `payment_types`
-  MODIFY `payment_type_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `payment_type_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `purchase`
@@ -197,7 +221,7 @@ ALTER TABLE `purchase`
 -- AUTO_INCREMENT for table `selling_regions`
 --
 ALTER TABLE `selling_regions`
-  MODIFY `Selling_region_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Selling_region_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `star`

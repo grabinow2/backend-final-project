@@ -1,34 +1,80 @@
-<LINK rel="stylesheet" href="../css/order_form_styles.css" type="text/css" />
-Enter Your Information Below:
-<br>
-<br>
-<br>
-<label for="Full_Name"><b>Full Name</b></label>
-<input type="text" placeholder="Enter Full Name" name="Full_Name" required>
-<br>
-<label for="Regions">Choose a Country:</label>
-<select id="Regions">
-    <option value="Test for G.0 #Chaverim4Life">G.O</option>
-</select>
-<br>
-<label for="State"><b>State</b></label>
-<input type="text" placeholder="Enter State" name="State" required>
-<br>
-<label for="Address"><b>Address</b></label>
-<input type="text" placeholder="Enter Address" name="Address" required>
-<br>
-<label for="Zip_Code"><b>Zip Code</b></label>
-<input type="text" placeholder="Enter Zip Code" name="Zip_Code" required>
-<br>
-<label for="Payment">Choose a Payment Option:</label>
-<select id="Payment">
-    <option value="Test for G.0 #Chaverim4Life">G.O</option>
-</select>
-<br>
-<label for="Email"><b>Email</b></label>
-<input type="text" placeholder="Enter Email" name="Email" required>
-<br>
-<input type="checkbox" id="Receive_Emails_CB" name="Receive_Emails" value="Receive">
-<label for="Receive_Emails_CB"> Receive Emails</label><br>
-<button type="button">Submit Order</button>
+<?php include "header.php";
 
+$conn = mysqli_connect('localhost', 'root', '', 'MyStar');
+
+?>
+
+<form action="order_conformation.php" method="post">
+    <div>
+        Enter Your Information Below:
+        <br>
+        <br>
+        <br>
+        <label for="Full_Name"><b>Full Name</b>
+            <input type="text" placeholder="Enter Full Name" id="Full_Name" required>
+        </label>
+        <br>
+        <label for="Regions">Choose a Country:
+            <select id="Regions">
+                <?php
+                if (!$conn) {
+                    die("Connection failed: " . mysqli_connect_error());
+                }
+                $sql = "select * from selling_regions";
+                $result = mysqli_query($conn, $sql);
+                $options = "";
+                while ($row = $result->fetch_assoc()) {
+                    $options .= '<option value="' . $row['selling_region_id'] . '">' . $row['REGION'] . '</option>';
+                }
+                echo $options;
+                ?>
+            </select>
+        </label>
+        <br>
+        <label for="State"><b>State</b>
+            <input type="text" placeholder="Enter State" id="State" required>
+        </label>
+        <br>
+        <label for="Address"><b>Address</b>
+            <input type="text" placeholder="Enter Address" id="Address" required>
+        </label>
+        <br>
+        <label for="Zip_Code"><b>Zip Code</b>
+            <input type="text" placeholder="Enter Zip Code" id="Zip_Code" required>
+        </label>
+        <br>
+        <label for="Payment">Choose a Payment Option:
+            <select id="Payment">
+                <?php
+                if (!$conn) {
+                    die("Connection failed: " . mysqli_connect_error());
+                }
+                $sql = "select * from payment_types";
+                $result = mysqli_query($conn, $sql);
+                $options = "";
+                while ($row = $result->fetch_assoc()) {
+                    $options .= '<option value="' . $row['payment_type_id'] . '">' . $row['payment_type'] . '</option>';
+                }
+                echo $options;
+                ?>
+            </select>
+        </label>
+        <br>
+        <label for="Email"><b>Email</b>
+            <input type="text" placeholder="Enter Email" id="Email" required>
+        </label>
+        <br>
+        <label for="Receive_Emails_CB"> Receive Emails
+            <input type="checkbox" id="Receive_Emails_CB" name="Receive_Emails" value="Receive">
+        </label><br>
+    </div>
+
+    <input type="submit" name="submit" value="Submit">
+
+</form>
+
+<?php include "footer.php";
+
+mysqli_close($conn);
+
+?>
