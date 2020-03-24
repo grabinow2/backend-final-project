@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 4.9.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2020 at 07:02 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.1
+-- Generation Time: Mar 24, 2020 at 02:44 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `mystar`
+-- Database: `MyStar`
 --
 
 -- --------------------------------------------------------
@@ -69,10 +69,22 @@ CREATE TABLE `customer` (
 
 CREATE TABLE `payment_info` (
   `PAYMENT_ID` int(11) NOT NULL,
+  `payment_type_ID` int(11) NOT NULL,
   `NAME_ON_CARD` varchar(40) NOT NULL,
   `CC_NUM` varchar(19) NOT NULL,
   `EXP_DT` varchar(5) NOT NULL,
   `CCV` varchar(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payment_types`
+--
+
+CREATE TABLE `payment_types` (
+  `payment_type_ID` int(11) NOT NULL,
+  `payment_type` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -86,6 +98,17 @@ CREATE TABLE `purchase` (
   `CUST_ID` int(11) NOT NULL,
   `STAR_ID` int(11) NOT NULL,
   `PURCHASE_DT` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `selling_regions`
+--
+
+CREATE TABLE `selling_regions` (
+  `Selling_region_ID` int(11) NOT NULL,
+  `REGION` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -119,10 +142,22 @@ ALTER TABLE `payment_info`
   ADD PRIMARY KEY (`PAYMENT_ID`);
 
 --
+-- Indexes for table `payment_types`
+--
+ALTER TABLE `payment_types`
+  ADD PRIMARY KEY (`payment_type_ID`);
+
+--
 -- Indexes for table `purchase`
 --
 ALTER TABLE `purchase`
   ADD PRIMARY KEY (`PURCHASE_ID`);
+
+--
+-- Indexes for table `selling_regions`
+--
+ALTER TABLE `selling_regions`
+  ADD PRIMARY KEY (`Selling_region_ID`);
 
 --
 -- Indexes for table `star`
@@ -147,10 +182,22 @@ ALTER TABLE `payment_info`
   MODIFY `PAYMENT_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `payment_types`
+--
+ALTER TABLE `payment_types`
+  MODIFY `payment_type_ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `purchase`
 --
 ALTER TABLE `purchase`
   MODIFY `PURCHASE_ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `selling_regions`
+--
+ALTER TABLE `selling_regions`
+  MODIFY `Selling_region_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `star`
