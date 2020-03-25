@@ -4,18 +4,18 @@ $conn = mysqli_connect('localhost', 'root', '', 'MyStar');
 
 ?>
 
-<form action="order_conformation.php" method="post">
+<form action="order_confirmation.php" method="post">
     <div>
         Enter Your Information Below:
         <br>
         <br>
         <br>
         <label for="Full_Name"><b>Full Name</b>
-            <input type="text" placeholder="Enter Full Name" id="Full_Name" required>
+            <input type="text" placeholder="Enter Full Name" id="Full_Name" name="Full_Name" required>
         </label>
         <br>
         <label for="Regions">Choose a Country:
-            <select id="Regions">
+            <select id="Regions" name="Regions">
                 <?php
                 if (!$conn) {
                     die("Connection failed: " . mysqli_connect_error());
@@ -32,19 +32,19 @@ $conn = mysqli_connect('localhost', 'root', '', 'MyStar');
         </label>
         <br>
         <label for="State"><b>State</b>
-            <input type="text" placeholder="Enter State" id="State" required>
+            <input type="text" placeholder="Enter State" id="State" name="State" required>
         </label>
         <br>
         <label for="Address"><b>Address</b>
-            <input type="text" placeholder="Enter Address" id="Address" required>
+            <input type="text" placeholder="Enter Address" id="Address" name="Address" required>
         </label>
         <br>
         <label for="Zip_Code"><b>Zip Code</b>
-            <input type="text" placeholder="Enter Zip Code" id="Zip_Code" required>
+            <input type="text" placeholder="Enter Zip Code" id="Zip_Code" name="Zip_Code" required>
         </label>
         <br>
         <label for="Payment">Choose a Payment Option:
-            <select id="Payment">
+            <select id="Payment" name="Payment">
                 <?php
                 if (!$conn) {
                     die("Connection failed: " . mysqli_connect_error());
@@ -61,7 +61,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'MyStar');
         </label>
         <br>
         <label for="Email"><b>Email</b>
-            <input type="text" placeholder="Enter Email" id="Email" required>
+            <input type="text" placeholder="Enter Email" id="Email" name="Email" required>
         </label>
         <br>
         <label for="Receive_Emails_CB"> Receive Emails
