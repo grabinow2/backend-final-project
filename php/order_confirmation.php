@@ -12,11 +12,11 @@ if ($conn->connect_error) {
 }
 
 if (isset($_POST['Receive_Emails']) && $_POST['Receive_Emails'] == 'Receive') {
-    $sql = "INSERT INTO customer (F_NAME, L_NAME, email, Email_list)
-VALUES ( '$splitNames[0]' ,  '$splitNames[1]' , '$email' , true)";
+    $sql = "INSERT INTO emailList (`email`, `first name`, `last name`, `receive`)
+VALUES ( '$email', '$splitNames[0]' ,  '$splitNames[1]' ,  true)";
 } else {
-    $sql = "INSERT INTO customer (F_NAME, L_NAME, email, Email_list)
-VALUES ( '$splitNames[0]' ,  '$splitNames[1]' , '$email' , false)";
+    $sql = "INSERT INTO emailList (`email`, `first name`, `last name`, `receive`)
+VALUES ( '$email', '$splitNames[0]' ,  '$splitNames[1]' , false)";
 }
 
 if ($conn->query($sql) === TRUE) {
