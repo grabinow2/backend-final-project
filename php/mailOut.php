@@ -5,13 +5,13 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 /* Exception class. */
-require 'C:\xampp\htdocs\backend-final-project\PHPMailer-master\src\Exception.php';
+require 'C:\xampp\htdocs\sandbox\backend-final-project2\PHPMailer-master\src\Exception.php';
 
 /* The main PHPMailer class. */
-require 'C:\xampp\htdocs\backend-final-project\PHPMailer-master\src\PHPMailer.php';
+require 'C:\xampp\htdocs\sandbox\backend-final-project2\PHPMailer-master\src\PHPMailer.php';
 
 /* SMTP class, needed if you want to use SMTP. */
-require 'C:\xampp\htdocs\backend-final-project\PHPMailer-master\src\SMTP.php';
+require 'C:\xampp\htdocs\sandbox\backend-final-project2\PHPMailer-master\src\SMTP.php';
 
 $mail = new PHPMailer;
 $mail->isSMTP();
