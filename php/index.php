@@ -1,5 +1,5 @@
 <?php include "header.php"; ?>
-
+<br>
 <h1>Welcome to MyStar!</h1>
 <h3>Buy your star today!</h3>
 

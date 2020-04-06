@@ -1,0 +1,74 @@
+body {
+
+}
+P{
+    font-family: Calibri;
+    font-size: xx-large;
+    text-shadow: #333333;
+}
+
+#navMenu {
+    margin:0;
+    padding:0;
+    list-style:none;
+    font-family: "Century Gothic";
+    text-align:center;
+    line-height:60px;
+}
+
+#navMenu li {
+    float:left;
+
+    /* default background image	*/
+    background:#555555 no-repeat center center;
+
+    /* width and height of the menu item */
+    width:240px;
+    height:70px;
+    text-overline-color: #GGGGGG;
+
+    /* simulate pixel perfect using border */
+    border-left:1px solid #111;
+    border-right:1px solid #333;
+    border-top:1px solid #555;
+    border-bottom:1px solid #333;
+
+    /* must set it as relative, because .hover class top and left with absolute position will be positioned according to li.	*/
+    position:relative;
+}
+
+#navMenu li a {
+    /* z-index must be higher than .hover class */
+    z-index:20;
+
+    /* display as block and set the height according to the height of the menu to make the whole LI clickable	*/
+    display:block;
+    height:70px;
+    position:relative;
+    color: blue;
+}
+
+#navMenu li .hover {
+    /* mouseover image	*/
+    background:#FFFFFF no-repeat center center;
+
+    /* must be postion absolute 	*/
+    position:absolute;
+
+    /*	width, height, left and top to fill the whole LI item	*/
+    width:120px;
+    height:70px;
+    left:0;
+    top:0;
+
+    /* display under the Anchor tag	*/
+    z-index:0;
+
+    /* hide it by default	*/
+    display:none;
+}
+
+#navMenu li.selected {
+    /* selected image	*/
+    background:url(https://image.freepik.com/free-vector/gold-stars-beautifully-arranged-white-background_41084-367.jpg) no-repeat center center;
+}

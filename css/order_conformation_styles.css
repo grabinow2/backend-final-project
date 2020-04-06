@@ -1,8 +1,10 @@
 body {
     font: 300% georgia, Arial;
     line-height: 1.88889;
-    color: #555753;
-    background: #fff url(https://image.freepik.com/free-vector/gold-stars-beautifully-arranged-white-background_41084-367.jpg) ;
+    color: #FFFFFF;
+    background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     margin: 0;
     padding: 200px;
     text-align: center;
