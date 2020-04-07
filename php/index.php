@@ -8,5 +8,6 @@
     You'll then be given our official certificate with all the known information about the star and you special name
     right on it!
 </p>
+<?php include "slideshowMenu.php"; ?>
 
 <?php include "footer.php"; ?>
