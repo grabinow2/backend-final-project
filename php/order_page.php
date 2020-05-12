@@ -4,7 +4,7 @@
 $conn = mysqli_connect('localhost', 'root', '', 'MyStar');
 
 ?>
-
+<br><br><br><br><br><br>
 <form action="order_confirmation.php" method="post">
     <div>
         Enter Your Information Below:

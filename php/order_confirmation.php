@@ -29,6 +29,8 @@ if ($conn->query($sql) === TRUE) {
 $conn->close();
 
 ?>
+
+<br><br><br><br><br><br>
 you for placing your order!
 <br>
 <br>
