@@ -1,3 +1,4 @@
+<?php include "header.php"; ?>
 <head>
     <LINK rel="stylesheet" href="../css/styles.css" type="text/css"></LINK>
     <title>Contact Us Form</title>

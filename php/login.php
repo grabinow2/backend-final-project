@@ -1,3 +1,4 @@
+<?php include "header.php"; ?>
 <form action="response.php" method="post">
     <div class="container">
             <label for="uname"><b>Username</b></label>
